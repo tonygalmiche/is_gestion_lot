@@ -21,6 +21,9 @@ class report_stock_lot_bloque(osv.osv):
                                 ('rebut', 'Mise au rebut')], 'Operation', readonly=True),     
     }
     
+
+
+
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'report_stock_lot_bloque')
         cr.execute("""
@@ -37,12 +40,12 @@ class report_stock_lot_bloque(osv.osv):
                         stock_quant quant
                         INNER JOIN stock_location location ON (quant.location_id = location.id)
                 WHERE   quant.lot_id is not Null
-                AND     location.control_quality = False
+                AND     (location.control_quality = False or location.control_quality is Null)
                 AND     location.usage = 'internal'
                 GROUP BY quant.lot_id, quant.product_id, quant.location_id
                 HAVING     sum(quant.qty) > 0
                 ORDER BY quant.product_id
                )
         """)
-    
+
 report_stock_lot_bloque()

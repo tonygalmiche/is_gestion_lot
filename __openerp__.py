@@ -10,7 +10,7 @@ Gestion du contrôle qualité
     'author': 'Tony GALMICHE / Asma BOUSSELMI',
     'maintainer': 'InfoSaone',
     'website': 'http://www.infosaone.com',
-    'depends': ['base', 'stock', 'is_plastigray'],
+    'depends': ['base', 'stock'],
     'data': ['security/is_gestion_lot_security.xml',
              'is_stock_view.xml',
              'wizard/is_gestion_lot_view.xml',
