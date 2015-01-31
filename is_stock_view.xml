@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    	<menuitem id="menu_is_gestion_lot"  sequence="4"  name="Gestion de Contrôle Qualité" parent="stock.menu_stock_root"/>
+    
+    	<!-- Fiche Emplacement de stock -->
+    	<record id="is_stock_location_view_form" model="ir.ui.view">
+            <field name="name">is.stock.location.form</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='usage']" position="after">
+            		<field name="control_quality" /> 
+            	</xpath>
+            </field>
+        </record>
+        
+        <!-- Commentaire -->
+		<record id="view_is_commentaire_tree" model="ir.ui.view">
+            <field name="name">is.commentaire.mouvement.stock.tree</field>
+            <field name="model">is.commentaire.mouvement.stock</field>
+            <field name="arch" type="xml">
+                <tree string="Commentaire">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_is_commentaire_form" model="ir.ui.view">
+            <field name="name">is.commentaire.mouvement.stock.form</field>
+            <field name="model">is.commentaire.mouvement.stock</field>
+            <field name="arch" type="xml">
+                <form string="Commentaire">
+                  <group name='comment'>
+                	<field name="name"  />
+                  </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_is_commentaire_lot" model="ir.actions.act_window">
+            <field name="name">Commentaires sur stock</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">is.commentaire.mouvement.stock</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem action="action_is_commentaire_lot" 
+				id="menu_action_is_commentaire_lot"  sequence="5"  
+				name="Commentaires sur stock" 
+				parent="menu_is_gestion_lot" />
+
+    	
+    </data>
+</openerp>

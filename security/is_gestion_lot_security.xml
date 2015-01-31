@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+
+        <record model="res.groups" id="group_is_bloque_lot">
+            <field name="name">Bloquer lot</field>
+        </record>
+
+        <record model="res.groups" id="group_is_debloque_lot">
+            <field name="name">Débloquer lot</field>
+        </record>
+        
+        <record model="res.groups" id="group_is_change_locations">
+            <field name="name">Changement emplacements</field>
+        </record>
+        
+        <record model="res.groups" id="group_is_rebut_lot">
+            <field name="name">Mise au rebut</field>
+        </record>
+
+    </data>
+</openerp>
+
